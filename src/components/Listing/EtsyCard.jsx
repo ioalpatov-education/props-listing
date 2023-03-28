@@ -1,9 +1,10 @@
-import { getPriceWithCurrency } from "./listingUtils";
+import { getPriceWithCurrency, getQuantityLevelClasses } from "./listingUtils";
 
 const EtsyCard = ({ item }) => {
   const { url, MainImage, title, currency_code, price, quantity } = item;
 
   const priceWithCurrency = getPriceWithCurrency(currency_code, price);
+  const quantityLevelClasses = getQuantityLevelClasses(quantity);
 
   return (
     <div className="item">
@@ -15,7 +16,7 @@ const EtsyCard = ({ item }) => {
       <div className="item-details">
         <p className="item-title">{title}</p>
         <p className="item-price">{priceWithCurrency}</p>
-        <p className="item-quantity level-medium">12 left</p>
+        <p className={quantityLevelClasses}>{quantity} left</p>
       </div>
     </div>
   );
