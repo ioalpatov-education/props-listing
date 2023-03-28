@@ -19,3 +19,9 @@ export const getQuantityLevelClasses = (quantity) => {
 
   return `item-quantity ${levelClass}`;
 };
+
+export const getLimitedTitle = (title) => {
+  if (title.length < 50) return title;
+  const limitedTitle = title.slice(0, 51).trim();
+  return `${limitedTitle}…`;
+};
